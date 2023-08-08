@@ -1,3 +1,4 @@
+/*
 
 provider "aws" {
   region = "ap-southeast-1"
@@ -20,3 +21,4 @@ resource "aws_instance" "app1" {
     Name = "Application Server From Jenkins" 
   }
 }
+*/
