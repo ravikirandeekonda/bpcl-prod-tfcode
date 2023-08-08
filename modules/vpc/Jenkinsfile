@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'production', credentialsId: 'e02682ad-b414-4b2a-a08f-e855718e04ea', url: 'https://github.com/ravikirandeekonda/bpcl-prod-tfcode.git'
+            }
+        }
+        stage('Terraform init') {
+            steps {
+                sh ("terraform init")
+            }
+        }
+        stage('terraform apply') {
+            steps {
+                sh ("terraform apply --auto-approve")
+            }
+        }
+    }
+}
