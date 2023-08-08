@@ -9,12 +9,16 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
                 sh ("terraform init")
+                }
             }
         }
         stage('terraform plan') {
             steps {
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
                 sh ("terraform plan")
+                }
             }
         }
     }
