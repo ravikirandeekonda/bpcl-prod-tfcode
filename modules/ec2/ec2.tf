@@ -1,4 +1,8 @@
 
+provider "aws" {
+  region = "ap-southeast-1"
+}
+
 resource "aws_instance" "app1" {
   ami = "ami-0df7a207adb9748c7"
   subnet_id = var.pubsub1aid
