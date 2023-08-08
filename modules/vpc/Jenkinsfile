@@ -9,21 +9,21 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
                 sh ("terraform init")
                 }
             }
         }
         stage('terraform plan') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
                 sh ("terraform plan")
                 }
             }
         }
         stage('terraform apply') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
                 sh ("terraform apply --auto-approve")
                 }
             }
