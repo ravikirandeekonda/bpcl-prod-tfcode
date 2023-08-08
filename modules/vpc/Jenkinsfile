@@ -21,5 +21,12 @@ pipeline {
                 }
             }
         }
+        stage('terraform plan') {
+            steps {
+                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/vpc'){
+                sh ("terraform apply --auto-approve")
+                }
+            }
+        }
     }
 }
