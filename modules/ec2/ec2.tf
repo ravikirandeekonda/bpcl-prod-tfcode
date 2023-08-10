@@ -24,7 +24,7 @@ resource "aws_eip" "jeip" {
   }
 }
 
-/*
+
 
 ######Application-Server######
 
@@ -54,4 +54,3 @@ resource "aws_eip" "appeip" {
   }
 }
 
-*/
