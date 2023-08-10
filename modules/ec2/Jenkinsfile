@@ -26,10 +26,10 @@ pipeline {
                 }
             }
         }
-        stage('terraform apply') {
+        stage('terraform fmt') {
             steps {
                 dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
-                sh ("terraform apply --auto-approve")
+                sh ("terraform fmt")
                 }
             }
         }
