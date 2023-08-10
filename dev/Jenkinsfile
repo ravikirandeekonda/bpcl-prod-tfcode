@@ -44,7 +44,7 @@ pipeline {
             } 
         }
 
-		 stage('Terraform Apply') {
+		stage('Terraform Apply') {
             when { 
                 expression { params.CHOICE == 'apply' }
             }   
