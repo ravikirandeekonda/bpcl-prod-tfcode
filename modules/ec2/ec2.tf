@@ -25,7 +25,7 @@ resource "aws_eip" "jeip" {
 }
 
 
-/*
+
 ######Application-Server######
 
 resource "aws_instance" "AppVM" {
@@ -45,7 +45,7 @@ resource "aws_instance" "AppVM" {
     Name = "AWS-Application-VM-DO-NOT-DELETE"
   }
 }
-
+/*
 resource "aws_eip" "appeip" {
   instance = aws_instance.AppVM.id
   domain   = "vpc"
