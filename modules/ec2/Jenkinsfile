@@ -14,21 +14,21 @@ pipeline {
         }
         stage('Terraform init') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/terraform-dev-pipeline/modules/ec2'){
                 sh ("terraform init")
                 }
             }
         }
         stage('terraform plan') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/terraform-dev-pipeline/modules/ec2'){
                 sh ("terraform plan")
                 }
             }
         }
         stage('terraform fmt') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-dev-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/terraform-dev-pipeline/modules/ec2'){
                 sh ("terraform fmt")
                 }
             }
