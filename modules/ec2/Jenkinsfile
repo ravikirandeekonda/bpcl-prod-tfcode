@@ -1,48 +1,60 @@
 pipeline {
     agent any
-
-    parameters{
-        choice(name: 'CHOICE', choices: ['plan', 'apply'], description: 'Pick something')
+   
+    parameters {
+        choice(choices:['plan','apply'], description: 'Request Action', name: 'CHOICE')
     }
-
-    environment{
+	
+	 environment{
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
-
+   
     stages {
         stage('checkout') {
             steps {
                 git branch: 'production', credentialsId: '9dc5e3e0-ef18-41bf-bc57-f5c599530be3', url: 'https://github.com/ravikirandeekonda/bpcl-prod-tfcode.git'
             }
         }
+		
         stage('Terraform init') {
             steps {
-                dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/bpcl-nagarro-dev-tfcode-pipeline/dev'){
                 sh ("terraform init")
                 }
             }
         }
-        stage('terraform plan') {
-            steps {
+        
+        stage('Manual Step') {
+            steps('Input') {
+                echo "choice: ${CHOICE}"
+                echo "choice params.: " + params.CHOICE
+            }
+        }
+        
+        stage('plan') {
+            when { 
+                expression { params.CHOICE == 'plan' }
+            }   
+            
+            steps('Execute Plan')    {
                 dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
                 sh ("terraform plan")
                 }
-            }
+            } 
         }
-        stage('terraform fmt') {
-            steps {
-                dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
-                sh ("terraform fmt")
-                }
-            }
-        }
-        stage('terraform apply') {
-            steps {
+
+		 stage('Terraform Apply') {
+            when { 
+                expression { params.CHOICE == 'apply' }
+            }   
+            
+            steps('Execute Apply')    {
                 dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
                 sh ("terraform apply --auto-approve")
                 }
-            }
+            } 
         }
+        
     }
 }
