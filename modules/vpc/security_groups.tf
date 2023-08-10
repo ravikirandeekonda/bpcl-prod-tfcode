@@ -1,4 +1,3 @@
-/*
 resource "aws_security_group" "app1sg" {
   name = "App-Security"
   description = "App-Security"
@@ -17,4 +16,3 @@ resource "aws_security_group" "app1sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-*/

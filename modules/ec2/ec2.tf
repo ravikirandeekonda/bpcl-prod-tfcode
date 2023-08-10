@@ -1,7 +1,4 @@
-provider "aws" {
-  region = "ap-southeast-1"
-}
-
+/*
 resource "aws_instance" "app1" {
   ami             = var.instami
   subnet_id       = var.pubsub1aid
@@ -18,3 +15,4 @@ resource "aws_instance" "app1" {
     Name = "Application Server From Jenkins"
   }
 }
+*/

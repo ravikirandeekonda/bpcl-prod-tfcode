@@ -1,3 +1,4 @@
+/*
 variable "pubsub1aid" {
   default = "subnet-0e77eeb788c39c2e1"
   type    = string
@@ -22,3 +23,4 @@ variable "keypair" {
   default = "ravikiran-keypair"
   type    = string
 }
+*/

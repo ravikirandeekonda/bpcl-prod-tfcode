@@ -19,7 +19,7 @@ pipeline {
 		
         stage('Terraform init') {
             steps {
-                dir('/var/lib/jenkins/workspace/bpcl-nagarro-dev-tfcode-pipeline/dev'){
+                dir('/var/lib/jenkins/workspace/terraform-pipeline/dev'){
                 sh ("terraform init")
                 }
             }
@@ -38,7 +38,7 @@ pipeline {
             }   
             
             steps('Execute Plan')    {
-                dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/terraform-pipeline/dev'){
                 sh ("terraform plan")
                 }
             } 
@@ -50,7 +50,7 @@ pipeline {
             }   
             
             steps('Execute Apply')    {
-                dir('/var/lib/jenkins/workspace/terraform-pipeline/modules/ec2'){
+                dir('/var/lib/jenkins/workspace/terraform-pipeline/dev'){
                 sh ("terraform apply --auto-approve")
                 }
             } 
