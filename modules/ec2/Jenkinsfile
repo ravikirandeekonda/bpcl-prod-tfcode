@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'production', credentialsId: 'e02682ad-b414-4b2a-a08f-e855718e04ea', url: 'https://github.com/ravikirandeekonda/bpcl-prod-tfcode.git'
+                git branch: 'production', credentialsId: '7306d1cf-cef9-452d-8aa5-32e7971d52a2', url: 'https://github.com/ravikirandeekonda/bpcl-prod-tfcode.git'
             }
         }
         stage('Terraform init') {
