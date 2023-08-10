@@ -1,7 +1,7 @@
 provider "aws" {
   region = "ap-southeast-1"
 }
-/*
+
 module "vpcmod" {
   source = "../modules/vpc"
 }
@@ -14,4 +14,3 @@ module "ec2mod" {
   jenkinsg       = module.vpcmod.jenkinsg
   appsg          = module.vpcmod.appsg
 }
-*/
