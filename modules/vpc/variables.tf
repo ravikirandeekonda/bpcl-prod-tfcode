@@ -14,12 +14,12 @@ variable "pub_sub_cidrb" {
 }
 
 variable "az_1a" {
-    default = "ap-south-1a"
+    default = "ap-southeast-1a"
   type = string
 }
 
 variable "az_1b" {
-    default = "ap-south-1b"
+    default = "ap-southeast-1b"
   type = string
 }
 
