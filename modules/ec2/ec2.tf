@@ -25,7 +25,7 @@ resource "aws_eip" "jeip" {
 }
 
 
-
+/*
 ######Application-Server######
 
 resource "aws_instance" "AppVM" {
@@ -54,3 +54,4 @@ resource "aws_eip" "appeip" {
   }
 }
 
+*/
