@@ -14,7 +14,7 @@ variable "instami" {
 }
 
 variable "insttype" {
-  default = "t2.micro"
+  default = "t3a.medium"
   type    = string
 }
 

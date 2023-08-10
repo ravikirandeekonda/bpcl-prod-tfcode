@@ -9,7 +9,7 @@ resource "aws_instance" "app1" {
   key_name        = var.keypair
   security_groups = [var.security_groups]
   root_block_device {
-    volume_size           = 10
+    volume_size           = 20
     volume_type           = "gp3"
     delete_on_termination = true
   }
