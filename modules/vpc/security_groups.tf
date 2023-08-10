@@ -1,26 +1,26 @@
 resource "aws_security_group" "jenkinssg" {
-  name = "Jenkins-Security"
+  name        = "Jenkins-Security"
   description = "Jenkins-Security"
-  vpc_id = aws_vpc.aws-vpc.id
+  vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
-    from_port = 22
-    to_port = 22
-    protocol = "TCP"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port = 8080
-    to_port = 8080
-    protocol = "TCP"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  egress{
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }

@@ -11,7 +11,7 @@ variable "vmtype" {
 }
 
 variable "keypair" {
-  default = "ravikiran_keypair"
+  default = "ravikiran-keypair"
   type    = string
 }
 

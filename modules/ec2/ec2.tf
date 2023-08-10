@@ -3,7 +3,7 @@ resource "aws_instance" "JenkinsVM" {
   instance_type   = var.vmtype
   subnet_id       = var.publicsubent1a
   key_name        = var.keypair
-  security_groups = [var.jenkinsg]
+  vpc_security_group_ids = [ var.jenkinsg ]
   root_block_device {
     volume_size           = 20
     volume_type           = "gp3"
