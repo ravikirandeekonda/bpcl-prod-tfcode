@@ -20,7 +20,17 @@ variable "jenkinsg" {
   type    = string
 }
 
+variable "appsg" {
+  default = "sg-0838825c65ead1e16"
+  type    = string
+}
+
 variable "publicsubent1a" {
+  default = "subnet-0db733200ebd282ec"
+  type    = string
+}
+
+variable "publicsubent1b" {
   default = "subnet-0db733200ebd282ec"
   type    = string
 }
